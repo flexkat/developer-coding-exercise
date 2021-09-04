@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+export type Post = {
+  Title: string,
+  Author: string,
+  Content: string,
+  Slug: string
+}
+
 export const PostDisplay = () => {
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState<Post>();
   const [tags, setTags] = useState([]);
-  let { slug } = useParams();
+  const { slug } = useParams<{slug: string}>();
 
   useEffect(() => {
     fetch("http://localhost:3001/post/" + slug)

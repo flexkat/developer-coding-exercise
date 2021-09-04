@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {  BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
-import logo from './logo.svg';
 import './App.css';
-import { PostDisplay } from "./PostDisplay";
+import { PostDisplay, Post } from "./PostDisplay";
 
 function App() {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
     fetch('http://localhost:3001/posts')
