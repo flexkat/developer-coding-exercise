@@ -1,8 +1,11 @@
 const express = require('express')
 const { getTopWords } = require('./utils/tags')
+const cors = require('cors')
 const app = express()
 const rootPostDir = './server/assets/posts'
 const posts = require("../assets/posts/posts.json")
+
+app.use(cors())
 
 /**
  *  Returns the detail of an individual post in json, formatted as:
@@ -15,7 +18,7 @@ const posts = require("../assets/posts/posts.json")
  */
 app.get('/post/:slug', function (req, res) {
   const post = posts.find(post => post.Slug === req.params.slug)
-  return post
+  res.send(post)
   // ... fill in your own code ...
   // todo: add fetch with reading the markdown later on
 
@@ -32,11 +35,12 @@ app.get('/post/:slug', function (req, res) {
  * ]
  */
 app.get('/posts', function (req, res) {
-  return posts
+  console.log("called", posts.length)
+  res.send(posts)
   // ... fill in you own code ...
   // todo: add fetch with reading the markdown later on
 })
 
-app.listen(3000, function () {
-  console.log('Dev app listening on port 3000!')
+app.listen(3001, function () {
+  console.log('Dev app listening on port 3001!')
 })
