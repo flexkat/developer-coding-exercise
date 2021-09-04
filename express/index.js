@@ -18,7 +18,8 @@ app.use(cors())
  */
 app.get('/post/:slug', function (req, res) {
   const post = posts.find(post => post.Slug === req.params.slug)
-  res.send(post)
+  const tags = getTopWords(post.Content);
+  res.send({post: {content: post, tags: tags}})
   // ... fill in your own code ...
   // todo: add fetch with reading the markdown later on
 

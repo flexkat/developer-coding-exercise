@@ -30,7 +30,41 @@ const stopWords = [
  * @returns {[string]} - An array of the most frequently used non-Stopwords
  */
 function getTopWords (bodyText, tagCount = 5) {
-  // Write your own implementation
+  if(!bodyText) return;
+
+  const bodyAsString = bodyText.replace( /\n/g, " ").split(" ");
+  const wordCount = {};
+
+  bodyAsString.forEach(string => {
+    const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    let lowerWord = string.toLowerCase();
+    let word = lowerWord.replace(regex, '');
+
+    if (stopWords.includes(word)) return;
+    else {
+      if (wordCount[word] > 0) {
+        wordCount[word] += 1
+      } else {
+        wordCount[word] = 1
+      }
+    }
+  })
+
+  let sortedValues = Object.values(wordCount).sort((a, b) => b-a).splice(0, tagCount)
+  let keys = Object.keys(wordCount).sort();
+
+  console.log(sortedValues);
+  console.log(keys);
+  
+  let result = [];
+  
+  sortedValues.forEach(count => {
+    let found = keys.find(key => wordCount[key] === count)
+    result.push(found);
+    wordCount[found] = 0;
+  })
+
+  return result;
 }
 
 module.exports = { getTopWords }
