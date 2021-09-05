@@ -32,7 +32,7 @@ const stopWords = [
 function getTopWords (bodyText, tagCount = 5) {
   if(!bodyText) return;
 
-  const bodyAsString = bodyText.replace( /\n/g, " ").split(" ");
+  const bodyAsString = bodyText.replace( /\n/g, "").split(" ");
   const wordCount = {};
 
   bodyAsString.forEach(string => {

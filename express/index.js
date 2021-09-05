@@ -2,9 +2,9 @@ const express = require("express");
 const { getTopWords } = require("./utils/tags");
 const cors = require("cors");
 const app = express();
-const rootPostDir = "./server/assets/posts";
-const posts = require("../assets/posts/posts.json");
+const rootPostDir = "../assets/posts/";
 const fs = require("fs");
+const matter = require("gray-matter");
 
 app.use(cors());
 
@@ -18,10 +18,11 @@ app.use(cors());
  * }
  */
 app.get("/post/:slug", function (req, res) {
-  const post = posts.find((post) => post.Slug === req.params.slug);
-  const tags = getTopWords(post.Content);
-  res.send({ post: { content: post, tags: tags } });
-  // todo: add fetch with reading the markdown later on
+  const slug = req.params.slug;
+  const post = matter.read(rootPostDir + slug + ".md");
+  const tags = getTopWords(post.content);
+
+  res.send({ post: { content: post.content, ...post.data, tags: tags } });
 });
 
 /**
@@ -35,10 +36,20 @@ app.get("/post/:slug", function (req, res) {
  * ]
  */
 app.get("/posts", function (req, res) {
-  // const file = fs.readFile("rootPostDir")
-  // console.log("called", file)
-  res.send(posts);
-  // todo: add fetch with reading the markdown later on
+  const allPosts = [];
+  fs.readdir(rootPostDir, function (err, files) {
+    //handling error
+    if (err) {
+      return console.log("Unable to scan directory: " + err);
+    }
+    //listing all files using forEach
+    files.forEach(function (file) {
+      const result = matter.read(rootPostDir + file);
+      const resp = { ...result.data, content: result.content };
+      allPosts.push(resp)
+    });
+    res.send(allPosts);
+  });
 });
 
 app.listen(3001, function () {

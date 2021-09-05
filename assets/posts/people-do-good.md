@@ -1,9 +1,11 @@
-===
+---
 Title: When 531 People Do Good
 Author: Jon Hollingsworth
 Slug: people-do-good
-===
+---
+
 # When 531 People Do Good
+
 Of the 634 people who held an orange Lego brick in their hand yesterday, **531** of them cared enough to give it back.
 
 Those 531 people made a conscious decision to make sure it got to the right place. They decided that making a quick detour to our [Canterbury Tech Summit](http://www.techsummit.nz/) booth was worth it.

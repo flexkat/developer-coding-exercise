@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "2.8.5",
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "gray-matter": "4.0.3"
   },
   "devDependencies": {
     "prettier": "2.3.2"
