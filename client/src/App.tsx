@@ -1,10 +1,6 @@
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { PostDisplay, Post } from "./PostDisplay";
 import { PostsPage } from "./PostsPage";
@@ -17,11 +13,11 @@ function App() {
       .then((response) => response.json())
       .then((data) => setPosts(data));
   }, []);
-  
+
   return (
     <>
       <Router>
-        <AppBar position="sticky">
+        <AppBar position="sticky" style={{ backgroundColor: "#7e3ff2" }}>
           <Toolbar>
             <nav>
               <Button href="/" color="inherit">

@@ -15,6 +15,7 @@ export const PostsPage = ({ posts }: { posts: Post[] }) => {
       {posts.map((post) => (
         <Card
           title={post.Title}
+          author={post.Author}
           to={`post/${post.Slug}`}
           handleClick={redirectToPost}
           key={post.Slug}

@@ -1,4 +1,4 @@
-import { Chip, makeStyles, TablePagination } from "@material-ui/core";
+import { Chip, makeStyles } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
@@ -22,7 +22,7 @@ export const PostDisplay = () => {
         setPost(data.post);
         setTags(data.post.tags);
       });
-  }, []);
+  }, [slug]);
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,7 +38,7 @@ export const PostDisplay = () => {
   const classes = useStyles();
 
   return (
-    <>
+    <div style={{margin: "24px"}}>
       <h1>{post?.Title}</h1>
       <p>{post?.Author}</p>
       {post?.content ? (
@@ -51,6 +51,6 @@ export const PostDisplay = () => {
           <Chip variant="outlined" color="primary" label={tag} key={tag} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
