@@ -26,19 +26,19 @@ export const PostDisplay = () => {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      '& > *': {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      "& > *": {
         margin: theme.spacing(0.5),
-      },
-    },
+      }
+    }
   }));
 
   const classes = useStyles();
 
   return (
-    <div style={{margin: "24px"}}>
+    <div style={{ margin: "24px" }}>
       <h1>{post?.Title}</h1>
       <p>{post?.Author}</p>
       {post?.content ? (

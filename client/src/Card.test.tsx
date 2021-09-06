@@ -4,17 +4,14 @@ import Card from "./Card";
 
 describe("Card", () => {
   it("should render", () => {
-    expect(render(<Card title="Test" to="/to" handleClick={jest.fn()} />));
-  });
-  it("should match snapshot based on basic props", () => {
     expect(
-      render(<Card title="test" to="/to" handleClick={jest.fn()} />)
-    ).toMatchSnapshot();
+      render(<Card title="Test" author="Jo" to="/to" handleClick={jest.fn()} />)
+    );
   });
   it("should call onClick when card clicked", () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Card title="Test" to="/to" handleClick={onClick} />
+      <Card title="Test" author="Jo" to="/to" handleClick={onClick} />
     );
     const card = getByText("Test").parentElement;
     expect(onClick).toHaveBeenCalledTimes(0);

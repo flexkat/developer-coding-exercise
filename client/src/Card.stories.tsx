@@ -7,7 +7,7 @@ export default {
   component: Card,
   argTypes: {
     to: { control: false },
-    handleClick: { action: 'clicked' },
+    handleClick: { action: "clicked" },
   },
 } as ComponentMeta<typeof Card>;
 

@@ -46,7 +46,7 @@ app.get("/posts", function (req, res) {
     files.forEach(function (file) {
       const result = matter.read(rootPostDir + file);
       const resp = { ...result.data, content: result.content };
-      allPosts.push(resp)
+      allPosts.push(resp);
     });
     res.send(allPosts);
   });
