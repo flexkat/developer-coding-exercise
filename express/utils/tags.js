@@ -52,9 +52,6 @@ function getTopWords (bodyText, tagCount = 5) {
 
   let sortedValues = Object.values(wordCount).sort((a, b) => b-a).splice(0, tagCount)
   let keys = Object.keys(wordCount).sort();
-
-  console.log(sortedValues);
-  console.log(keys);
   
   let result = [];
   
