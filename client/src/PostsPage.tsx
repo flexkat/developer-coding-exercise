@@ -1,5 +1,4 @@
 import { useHistory } from "react-router-dom";
-import "./App.css";
 import Card from "./Card";
 import { Post } from "./PostDisplay";
 
