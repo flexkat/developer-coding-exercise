@@ -1,17 +1,19 @@
+import { Chip, makeStyles, TablePagination } from "@material-ui/core";
 import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 
 export type Post = {
-  Title: string,
-  Author: string,
-  content: string,
-  Slug: string
-}
+  Title: string;
+  Author: string;
+  content: string;
+  Slug: string;
+};
 
 export const PostDisplay = () => {
   const [post, setPost] = useState<Post>();
   const [tags, setTags] = useState([]);
-  const { slug } = useParams<{slug: string}>();
+  const { slug } = useParams<{ slug: string }>();
 
   useEffect(() => {
     fetch("http://localhost:3001/post/" + slug)
@@ -22,14 +24,33 @@ export const PostDisplay = () => {
       });
   }, []);
 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(0.5),
+      },
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
     <>
       <h1>{post?.Title}</h1>
-      <h2>{post?.Author}</h2>
-      <p>{post?.content}</p>
-      {tags.map((tag) => (
-        <p>{tag}</p>
-      ))}
+      <p>{post?.Author}</p>
+      {post?.content ? (
+        <ReactMarkdown children={post.content} />
+      ) : (
+        "Hmm looks like this is missing..."
+      )}
+      <div className={classes.root}>
+        {tags.map((tag) => (
+          <Chip variant="outlined" color="primary" label={tag} key={tag} />
+        ))}
+      </div>
     </>
   );
 };

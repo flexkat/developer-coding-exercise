@@ -4,7 +4,7 @@ Author: Jon Hollingsworth
 Slug: Im-betting-on-SPAs
 ---
 
-# A brief history of the web
+## A brief history of the web
 
 Back in the hazy days of 1999, Microsoft introduced an ActiveX component into Internet Explorer 5 that for the first time allowed Javascript within a page to fetch additional content from the server without reloading the entire page. These were heady days, and I remember writing a lot of Internet Explorer-only applications that leveraged this technology to load specific regions of content in response to user interactions.
 

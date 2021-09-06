@@ -4,7 +4,7 @@ Author: Jon Hollingsworth
 Slug: people-do-good
 ---
 
-# When 531 People Do Good
+## When 531 People Do Good
 
 Of the 634 people who held an orange Lego brick in their hand yesterday, **531** of them cared enough to give it back.
 
