@@ -1,12 +1,11 @@
 import {
-  Card,
+  Card as MatCard,
   CardContent,
   Typography,
   CardActions,
   Button,
   makeStyles,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -15,21 +14,19 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SimpleCard({
+export default function Card({
   title,
   to,
+  handleClick
 }: {
   title: string;
   to: string;
+  handleClick: (to: string) => void;
 }) {
   const classes = useStyles();
-  const history = useHistory();
 
- const redirectToPost = () => {
-   history.push(to)
- }
   return (
-      <Card className={classes.root} variant="outlined" onClick={redirectToPost}>
+      <MatCard className={classes.root} variant="outlined" onClick={() => handleClick(to)}>
         <CardContent>
           <Typography variant="h5" component="h2">
             {title}
@@ -41,6 +38,6 @@ export default function SimpleCard({
         <CardActions>
           <Button size="small">Learn More</Button>
         </CardActions>
-      </Card>
+      </MatCard>
   );
 }
