@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="MuiPaper-root MuiCard-root makeStyles-root-2 MuiPaper-outlined MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root makeStyles-root-1 MuiPaper-outlined MuiPaper-rounded"
       >
         <div
           class="MuiCardContent-root"
@@ -18,9 +18,7 @@ Object {
           </h2>
           <p
             class="MuiTypography-root MuiTypography-body2"
-          >
-            "author"
-          </p>
+          />
         </div>
         <div
           class="MuiCardActions-root MuiCardActions-spacing"
@@ -33,7 +31,7 @@ Object {
             <span
               class="MuiButton-label"
             >
-              Learn More
+              View Post
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -45,7 +43,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="MuiPaper-root MuiCard-root makeStyles-root-2 MuiPaper-outlined MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root makeStyles-root-1 MuiPaper-outlined MuiPaper-rounded"
     >
       <div
         class="MuiCardContent-root"
@@ -57,9 +55,7 @@ Object {
         </h2>
         <p
           class="MuiTypography-root MuiTypography-body2"
-        >
-          "author"
-        </p>
+        />
       </div>
       <div
         class="MuiCardActions-root MuiCardActions-spacing"
@@ -72,7 +68,7 @@ Object {
           <span
             class="MuiButton-label"
           >
-            Learn More
+            View Post
           </span>
           <span
             class="MuiTouchRipple-root"
