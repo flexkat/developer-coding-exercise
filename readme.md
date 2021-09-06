@@ -1,5 +1,7 @@
 # Instructions for running app
 
+You will need node version 10.15.0 or higher.
+
 ## Backend
 
 First, from project root run `cd express` then `npm install`.
